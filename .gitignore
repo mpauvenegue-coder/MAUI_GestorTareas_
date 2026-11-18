@@ -1,0 +1,21 @@
+
+# Archivos de compilación
+bin/
+obj/
+
+# Configuraciones del editor
+.vs/
+.vscode/
+*.user
+*.suo
+
+# Archivos temporales
+*.log
+*.tmp
+
+# Paquetes generados
+*.apk
+*.aab
+
+# Configuraciones locales
+local.properties
