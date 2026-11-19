@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="GestorTareas.Views.InicioPage"
+    Title="Mi Día"
+    BackgroundColor="#12121A">
+
+    <Grid
+        Padding="22"
+        RowDefinitions="Auto,Auto,Auto,*"
+        RowSpacing="20">
+
+        <VerticalStackLayout Spacing="5">
+
+            <Label
+                Text="Mi Día"
+                FontSize="34"
+                FontAttributes="Bold"
+                TextColor="#F5F1FF" />
+
+            <Label
+                Text="Organizá tus actividades a tu manera"
+                FontSize="14"
+                TextColor="#B8B3C9" />
+
+        </VerticalStackLayout>
+
+        <Border
+            Grid.Row="1"
+            BackgroundColor="#242332"
+            Stroke="#393349"
+            StrokeThickness="1"
+            Padding="18"
+            StrokeShape="RoundRectangle 18">
+
+            <VerticalStackLayout Spacing="8">
+
+                <Label
+                    Text="Tu progreso"
+                    FontSize="16"
+                    FontAttributes="Bold"
+                    TextColor="#F5F1FF" />
+
+                <Label
+                    x:Name="ProgresoLabel"
+                    Text="0 de 0 actividades completadas"
+                    FontSize="13"
+                    TextColor="#B69AFF" />
+
+                <ProgressBar
+                    x:Name="ProgresoBar"
+                    Progress="0"
+                    ProgressColor="#B69AFF"
+                    BackgroundColor="#454052"
+                    HeightRequest="8" />
+
+            </VerticalStackLayout>
+
+        </Border>
+
+        <Button
+            Grid.Row="2"
+            Text="+ Agregar actividad"
+            Clicked="OnAgregarClicked"
+            BackgroundColor="#B69AFF"
+            TextColor="#12121A"
+            FontAttributes="Bold"
+            HeightRequest="52"
+            CornerRadius="14" />
+
+        <CollectionView
+            Grid.Row="3"
+            ItemsSource="{Binding Actividades}"
+            SelectionMode="None">
+
+            <CollectionView.EmptyView>
+
+                <VerticalStackLayout
+                    Spacing="10"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center">
+
+                    <Label
+                        Text="Todavía no hay actividades"
+                        FontSize="17"
+                        TextColor="#F5F1FF"
+                        HorizontalTextAlignment="Center" />
+
+                    <Label
+                        Text="Agregá una actividad para comenzar"
+                        FontSize="13"
+                        TextColor="#B8B3C9"
+                        HorizontalTextAlignment="Center" />
+
+                </VerticalStackLayout>
+
+            </CollectionView.EmptyView>
+
+            <CollectionView.ItemTemplate>
+
+                <DataTemplate>
+
+                    <Border
+                        BackgroundColor="#242332"
+                        Stroke="#393349"
+                        StrokeThickness="1"
+                        Padding="16"
+                        Margin="0,0,0,12"
+                        StrokeShape="RoundRectangle 16">
+
+                        <VerticalStackLayout Spacing="10">
+
+                            <Label
+                                Text="{Binding Titulo}"
+                                FontSize="18"
+                                FontAttributes="Bold"
+                                TextColor="#F5F1FF" />
+
+                            <Label
+                                Text="{Binding Descripcion}"
+                                FontSize="14"
+                                TextColor="#B8B3C9" />
+
+                            <Label
+                                Text="{Binding Categoria, StringFormat='Categoría: {0}'}"
+                                FontSize="12"
+                                TextColor="#B69AFF" />
+
+                            <Grid
+                                ColumnDefinitions="Auto,*,Auto"
+                                ColumnSpacing="8">
+
+                                <CheckBox
+                                    Grid.Column="0"
+                                    IsChecked="{Binding Completada}"
+                                    CheckedChanged="OnCompletadaChanged"
+                                    Color="#B69AFF"
+                                    VerticalOptions="Center" />
+
+                                <Label
+                                    Grid.Column="1"
+                                    Text="Realizada"
+                                    TextColor="#F5F1FF"
+                                    VerticalOptions="Center" />
+
+                                <Button
+                                    Grid.Column="2"
+                                    Text="Eliminar"
+                                    Clicked="OnEliminarClicked"
+                                    BackgroundColor="#393044"
+                                    TextColor="#F5F1FF"
+                                    CornerRadius="10"
+                                    Padding="14,8" />
+
+                            </Grid>
+
+                        </VerticalStackLayout>
+
+                    </Border>
+
+                </DataTemplate>
+
+            </CollectionView.ItemTemplate>
+
+        </CollectionView>
+
+    </Grid>
+
+</ContentPage>
