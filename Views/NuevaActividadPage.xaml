@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="GestorTareas.Views.NuevaActividadPage"
+    Title="Nueva actividad"
+    BackgroundColor="#12121A">
+
+    <ScrollView>
+
+        <VerticalStackLayout
+            Padding="22"
+            Spacing="16">
+
+            <Label
+                Text="Nueva actividad"
+                FontSize="30"
+                FontAttributes="Bold"
+                TextColor="#F5F1FF" />
+
+            <Label
+                Text="Agregá algo que querés hacer hoy"
+                FontSize="14"
+                TextColor="#B8B3C9"
+                Margin="0,0,0,10" />
+
+            <Label
+                Text="Nombre de la actividad"
+                FontSize="14"
+                TextColor="#F5F1FF" />
+
+            <Border
+                BackgroundColor="#242332"
+                Stroke="#393349"
+                StrokeShape="RoundRectangle 12"
+                Padding="12,2">
+
+                <Entry
+                    x:Name="TituloEntry"
+                    Placeholder="Ejemplo: estudiar programación"
+                    PlaceholderColor="#8F8A9F"
+                    TextColor="#F5F1FF"
+                    BackgroundColor="Transparent" />
+
+            </Border>
+
+            <Label
+                Text="Descripción"
+                FontSize="14"
+                TextColor="#F5F1FF" />
+
+            <Border
+                BackgroundColor="#242332"
+                Stroke="#393349"
+                StrokeShape="RoundRectangle 12"
+                Padding="12,6">
+
+                <Editor
+                    x:Name="DescripcionEditor"
+                    Placeholder="¿Qué necesitás hacer?"
+                    PlaceholderColor="#8F8A9F"
+                    TextColor="#F5F1FF"
+                    BackgroundColor="Transparent"
+                    HeightRequest="110"
+                    AutoSize="TextChanges" />
+
+            </Border>
+
+            <Label
+                Text="Categoría"
+                FontSize="14"
+                TextColor="#F5F1FF" />
+
+            <Border
+                BackgroundColor="#242332"
+                Stroke="#393349"
+                StrokeShape="RoundRectangle 12"
+                Padding="12,2">
+
+                <Picker
+                    x:Name="CategoriaPicker"
+                    Title="Seleccioná una categoría"
+                    TitleColor="#8F8A9F"
+                    TextColor="#F5F1FF"
+                    BackgroundColor="Transparent">
+
+                    <Picker.Items>
+                        <x:String>Estudio</x:String>
+                        <x:String>Personal</x:String>
+                        <x:String>Ejercicio</x:String>
+                        <x:String>Hogar</x:String>
+                    </Picker.Items>
+
+                </Picker>
+
+            </Border>
+
+            <Label
+                x:Name="ErrorLabel"
+                TextColor="#FF8F9C"
+                FontSize="13"
+                IsVisible="False" />
+
+            <Button
+                Text="Guardar actividad"
+                Clicked="OnGuardarClicked"
+                BackgroundColor="#B69AFF"
+                TextColor="#12121A"
+                FontAttributes="Bold"
+                CornerRadius="14"
+                HeightRequest="52"
+                Margin="0,12,0,0" />
+
+            <Button
+                Text="Cancelar"
+                Clicked="OnCancelarClicked"
+                BackgroundColor="#393349"
+                TextColor="#F5F1FF"
+                CornerRadius="14"
+                HeightRequest="48" />
+
+        </VerticalStackLayout>
+
+    </ScrollView>
+
+</ContentPage>
