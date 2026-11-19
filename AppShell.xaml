@@ -1,14 +1,19 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
+
 <Shell
-    x:Class="GestorTareas.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:GestorTareas"
-    Title="GestorTareas">
+    xmlns:views="clr-namespace:GestorTareas.Views"
+    x:Class="GestorTareas.AppShell"
+    Shell.FlyoutBehavior="Disabled"
+    Shell.BackgroundColor="#12121A"
+    Shell.ForegroundColor="#B69AFF"
+    Shell.TitleColor="#F5F1FF"
+    Title="Mi Día">
 
     <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+        Title="Mi Día"
+        ContentTemplate="{DataTemplate views:InicioPage}"
+        Route="inicio" />
 
 </Shell>
